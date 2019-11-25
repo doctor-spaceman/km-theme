@@ -1,5 +1,12 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <? language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <? language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html <? language_attributes(); ?>>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
@@ -10,7 +17,7 @@
 		<?php wp_head(); ?>
 	</head>
 	
-	<?php $background = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' ); ?>
+	<?php $background = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
 
 	<body>
 		<div id="mainHeader" class="bg-white text-blue-light">
