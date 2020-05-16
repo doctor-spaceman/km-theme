@@ -536,11 +536,12 @@ div.wpcf7-mail-sent-ok {border-color: transparent transparent #ffffff transparen
 		-ms-flex-pack: justify;
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
+		-ms-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	.resume-list {
-		-ms-flex: 1 0 48%;
-		-webkit-flex-basis: 48%;
-		flex-basis: 48%;
+		min-width: 33%;
 	}
 }
 
