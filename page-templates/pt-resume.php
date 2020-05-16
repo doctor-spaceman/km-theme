@@ -5,13 +5,14 @@
 ?>
 <?php get_header(); ?>
 
-        <?php if ( get_field('hero_content') ) : ?>
-            <div class="hero-copy wrapper">
-                <?php the_field('hero_content'); ?>
-            </div>
-        <?php endif; ?>
-		</div>
         <div id="content" class="clearfix">
+            <?php if ( get_the_content() ) : ?>
+            <div class="content-panel">
+				<div class="text-blue-dark wrapper">
+                    <?php the_content(); ?>
+                </div>
+            </div>
+            <?php endif; ?>
 			<div class="content-panel">
 				<div class="text-blue-dark wrapper">
                 <?php 
