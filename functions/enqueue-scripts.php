@@ -12,7 +12,7 @@
 
     // css
     function wpt_theme_styles() {
-        wp_register_style('css-main',  get_template_directory_uri() . '/style.css');
+        wp_register_style('css-main',  get_template_directory_uri() . '/css/style.css');
         wp_enqueue_style('css-main');
     }
     add_action('wp_enqueue_scripts', 'wpt_theme_styles');

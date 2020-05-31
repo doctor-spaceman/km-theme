@@ -1,0 +1,45 @@
+/*-----Typography-----*/
+p {
+    padding-bottom: 20px;
+}
+h1, h2, h3, h4, p {
+    margin: 0;
+}
+h1, h2, h3 {
+	text-transform: uppercase;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 400;
+}
+
+/* Responsive */
+@media only screen and (max-width: 400px) {
+	p , label {font-size: .9em;}
+}
+@media only screen and (min-width: 530px) {
+	#nameTitle {font-size: 2em;}
+}
+@media only screen and (min-width: 610px) {
+	.attribution {font-size: .7em;}
+	p , label {font-size: 1.3em;}
+	p {line-height: 1.3em;}
+	.feature-box p {font-size: .9em;}	
+}
+@media only screen and (min-width: 640px) {
+	.copy,
+	.copy-no-rule {
+		-webkit-column-count: 2;
+	    -moz-column-count: 2;
+	    -ms-column-count: 2;
+	    column-count: 2;
+	    -webkit-column-gap: 3em;
+	    -moz-column-gap: 3em;
+	    -ms-column-gap: 3em;
+	    column-gap: 3em;
+	}
+	.copy {
+	    -webkit-column-rule: 1px solid #020033;
+	    -moz-column-rule: 1px solid #020033;
+	    -ms-column-rule: 1px solid #020033;
+	    column-rule: 1px solid #020033;
+	}		
+}
