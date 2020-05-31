@@ -20,7 +20,7 @@
 
 	<body>
         <div class="content">
-            <div id="mainHeader" class="bg-white text-blue-light">
+            <header role="banner" id="mainHeader" class="bg-white text-blue-light">
                 <div id="headerContent" class="wrapper">
                     <a href="<?php bloginfo('url'); ?>">
                         <div id="brand">
@@ -28,7 +28,7 @@
                             <h1 id="nameTitle"><?php bloginfo('name'); ?></h1>
                         </div>
                     </a>
-                    <div id="navIcon">
+                    <div tabindex="0" id="navIcon">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -39,22 +39,24 @@
                     <?php wp_nav_menu(
                         array(
                             'menu' => 'Main Menu', 
+                            'container' => 'nav',
                             'container_class' => 'main-menu'
                         )
                     );?>
                 </div>
                 <div id="mainMenuOverlay" class="screen-overlay"></div>
-            </div>
+            </header>
+            <main role="main">
                 <div class="hero-area clearfix"<?php if ( $background ) : ?> style="background: url('<?php echo $background[0]; ?>') no-repeat top left/cover;"<?php endif; ?>>
-                <div class="hero-copy wrapper">
-                    <p>
-                    <?php 
-                    if ( is_404() ) :
-                        echo "Sorry, no such page exists.";
-                    elseif ( get_field('hero_content') ) : 
-                        echo get_field('hero_content');
-                    endif;
-                    ?>
-                    </p>
+                    <div class="hero-copy wrapper">
+                        <p>
+                        <?php 
+                        if ( is_404() ) :
+                            echo "Sorry, no such page exists.";
+                        elseif ( get_field('hero_content') ) : 
+                            echo get_field('hero_content');
+                        endif;
+                        ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
