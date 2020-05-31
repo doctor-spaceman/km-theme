@@ -1,0 +1,28 @@
+/*-----Footer-----*/
+#footer {
+	margin-top: 4em;
+	padding: 20px 0px;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+#social {
+	display: flex;
+}
+#social a {
+	padding: 10px;
+}
+#social a:link,
+#social a:visited {
+	color: #a4a3b5;
+}
+#social a:hover {
+	color: #ffffff;
+}
+.attribution {
+	font-size: .7em;
+	text-align: center;
+}
