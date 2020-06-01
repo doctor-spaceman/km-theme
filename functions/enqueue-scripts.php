@@ -1,8 +1,8 @@
 <?php 
     // fonts
     function wpt_theme_fonts() {
-        wp_register_style('font-josefin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
-        wp_register_style('font-raleway', 'https://fonts.googleapis.com/css?family=Raleway:400,500');
+        wp_register_style('font-josefin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
+        wp_register_style('font-raleway', 'https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap');
         wp_register_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');	
         wp_enqueue_style('font-josefin');
         wp_enqueue_style('font-raleway');
