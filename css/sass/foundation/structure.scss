@@ -1,16 +1,15 @@
 /*-----Structure-----*/
 /*Prevent user agent spacing*/
 * {margin: 0; padding: 0;}
-/*Layouts should ignore logged-in top bar*/
-html[lang] {margin-top: 0 !important;} 
-/*Don't zoom in on device rotate*/
-html {-webkit-text-size-adjust: 100%;}
+html {
+    -webkit-text-size-adjust: 100%; /*Don't zoom in on device rotate*/
+
+    &[lang] {
+        margin-top: 0 !important; /*Layouts should ignore logged-in top bar*/
+    } 
+}
 body {
-    display: -ms-flexbox;
-	display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
-	-ms-flex-direction: column;
     flex-direction: column;
     color: #020033;
 	background-color: #ffffff;
