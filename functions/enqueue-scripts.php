@@ -32,6 +32,10 @@ if ( !is_admin_area() ) {
     add_action('init', 'switch_to_hosted_jquery');
 }
 
+// Avoid loading Contact Form 7 scripts
+add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
+
 function site_scripts() {
     // fonts
     wp_register_style('font-josefin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');

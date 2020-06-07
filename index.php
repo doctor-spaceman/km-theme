@@ -1,7 +1,11 @@
-<?php get_header(); ?>
+<?php 
+if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+	wpcf7_enqueue_scripts();
+}
 
-<?php
-	$displayContact = get_field('contact_form');
+$displayContact = get_field('contact_form');
+
+get_header(); 
 ?>
 
 		<div id="content" class="clearfix">
