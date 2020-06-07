@@ -52,7 +52,7 @@ function site_scripts() {
     wp_enqueue_style('css-main');
 
     // js
-    if ( file_exists(get_template_directory_uri() . '/js/vendor.js') ) :
+    if ( file_exists(get_template_directory() . '/js/vendor.js') ) :
         if ( preg_match('/(staging-km)/', get_site_url()) ) :
             wp_register_script('js-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
             wp_register_script('js-custom', get_template_directory_uri() . '/js/custom.js', array('js-vendor'), '', true);
