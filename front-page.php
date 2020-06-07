@@ -21,7 +21,7 @@
 							<a class="feature-box" href="<?php echo esc_url(get_field('right_panel_link')); ?>">
 								<div>
 									<span data-fa-symbol="right" class="<?php echo esc_html(get_field('right_panel_icon')); ?> text-blue-light"></span>
-									<svg class="fa-icon"><use xlink:href="#right"></use></svg>
+									<svg class="fa-icon"></svg><use xlink:href="#right"></use></svg>
 									<h2><?php echo esc_html(get_field('right_panel_title')); ?></h2>
 									<p><?php echo esc_html(get_field('right_panel_content')); ?></p>
 								</div>
