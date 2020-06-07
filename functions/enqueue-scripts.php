@@ -36,10 +36,8 @@ function site_scripts() {
     // fonts
     wp_register_style('font-josefin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
     wp_register_style('font-raleway', 'https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap');
-    wp_register_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');	
     wp_enqueue_style('font-josefin');
     wp_enqueue_style('font-raleway');
-    wp_enqueue_style('font-awesome');
     
     // css
     if ( preg_match('/(staging-km)/', get_site_url()) ) :
@@ -68,5 +66,7 @@ function site_scripts() {
         endif;
         wp_enqueue_script('js-custom');
     endif;
+    wp_register_script('js-fontawesome', 'https://kit.fontawesome.com/e550cf8e1e.js');	
+    wp_enqueue_script('js-fontawesome');
 }
 add_action( 'wp_enqueue_scripts', 'site_scripts' );
