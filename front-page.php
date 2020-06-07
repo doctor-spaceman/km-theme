@@ -2,22 +2,25 @@
 
 					<section class="content-panel bg-blue-dark">
 						<div class="services wrapper">
-							<a class="feature-box" href="<?php the_field('left_panel_link'); ?>">
+							<a class="feature-box" href="<?php echo esc_url(get_field('left_panel_link')); ?>">
 								<div>
-									<span class="<?php the_field('left_panel_icon'); ?> text-blue-light"></span>
-									<?php the_field('left_panel_content'); ?>
+									<span class="<?php echo esc_html(get_field('left_panel_icon')); ?> text-blue-light"></span>
+									<h2><?php echo esc_html(get_field('left_panel_title')); ?></h2>
+									<p><?php echo esc_html(get_field('left_panel_content')); ?></p>
 								</div>
 							</a>
-							<a class="feature-box" href="<?php the_field('middle_panel_link'); ?>">
+							<a class="feature-box" href="<?php echo esc_url(get_field('middle_panel_link')); ?>">
 								<div>
-									<span class="<?php the_field('middle_panel_icon'); ?> text-blue-light"></span>
-									<?php the_field('middle_panel_content'); ?>
+									<span class="<?php echo esc_html(get_field('middle_panel_icon')); ?> text-blue-light"></span>
+									<h2><?php echo esc_html(get_field('middle_panel_title')); ?></h2>
+									<p><?php echo esc_html(get_field('middle_panel_content')); ?></p>
 								</div>
 							</a>
-							<a class="feature-box" href="<?php the_field('right_panel_link'); ?>">
+							<a class="feature-box" href="<?php echo esc_url(get_field('right_panel_link')); ?>">
 								<div>
-									<span class="<?php the_field('right_panel_icon'); ?> text-blue-light"></span>
-									<?php the_field('right_panel_content'); ?>
+									<span class="<?php echo esc_html(get_field('right_panel_icon')); ?> text-blue-light"></span>
+									<h2><?php echo esc_html(get_field('right_panel_title')); ?></h2>
+									<p><?php echo esc_html(get_field('right_panel_content')); ?></p>
 								</div>
 							</a>
 						</div>
@@ -25,10 +28,9 @@
 					<section class="content-panel">
 						<div class="copy text-blue-dark wrapper">
 						<?php
-							if (have_posts()) : while (have_posts()) :
-								the_post();
+							if ( get_the_content() ) :
 								the_content(); 
-							endwhile; endif;
+							endif;
 						?>
 						</div>
 					</section>
