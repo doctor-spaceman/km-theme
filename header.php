@@ -24,7 +24,7 @@
                 <div id="headerContent" class="wrapper">
                     <a href="<?php bloginfo('url'); ?>">
                         <div id="brand">
-                            <img id="logo" src="/wp-content/themes/kmueller/img/triangles.jpg">
+                            <img alt="triangle logo icon" id="logo" src="/wp-content/themes/kmueller/img/triangles.jpg">
                             <h1 id="nameTitle"><?php bloginfo('name'); ?></h1>
                         </div>
                     </a>

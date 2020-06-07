@@ -6,14 +6,10 @@
 /*Form Container*/
 #contactForm div.wpcf7 {
 	padding: 20px;
-	border: 1px solid #020033;
+	border: 1px solid c('dark-blue');
 }
 .wpcf7-form {
-	display: -ms-flexbox;
-	display: -webkit-flex;
 	display: flex;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
 	flex-direction: column;
 }
 /*Form Inputs*/
@@ -23,13 +19,11 @@
 	width: 100%;
 	margin: 6px 0px;
 	display: block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 5px 10px;
-    background-color: #fff;
-    color: #020033;
-    outline: 1px solid #a4a3b5;
+	background-color: c('white');
+	color: c('dark-blue');
+    outline: 1px solid c('light-blue');
     font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
     font-size: 1em !important;
     overflow: auto;
@@ -40,7 +34,7 @@
 	border: none;
 }
 .wpcf7 textarea:focus,
-.wpcf7 input:focus {outline: 1px solid #e2374b;}
+.wpcf7 input:focus {outline: 1px solid c('magenta');}
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 input[type="submit"] {
@@ -49,20 +43,18 @@
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 input[type="submit"] {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: none;
 }
 .wpcf7 input[type="submit"]:focus {outline: none;}
-.wpcf7 input[type="submit"]:hover {background: #64001c; color: #ffffff;}
+.wpcf7 input[type="submit"]:hover {background: c('dark-red'); color: c('white');}
 .wpcf7-submit {
 	display: block;
 	position: relative;
 	top: 20px;
 	width: 160px;
 	margin: 0 auto;
-	background: #a4a3b5;
+	background: c('light-blue');
 	font-family: 'Josefin Sans', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	font-size: 1.4em;
 	text-transform: uppercase;
@@ -70,7 +62,7 @@
 	transition-duration: .5s;
 }
 input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {color: #b6b6b6 !important;}
+textarea:-ms-input-placeholder {color: c('light-gray') !important;}
 /*Form Alerts*/
 p span .wpcf7-not-valid,
 span .wpcf7-not-valid {
@@ -84,10 +76,8 @@ div.wpcf7-response-output {
     top: 10px;
     text-align: center;
     font-size: .8em;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
-    color: #020033;
+    color: c('dark-blue');
 }
 span.wpcf7-not-valid-tip {font-size: .8em;}
 div.wpcf7-spam-blocked,
@@ -95,7 +85,7 @@ div.wpcf7-mail-sent-ng,
 div.wpcf7-mail-sent-ok {border-width: 0 0 1px 0 !important;}
 div.wpcf7-spam-blocked,
 div.wpcf7-mail-sent-ng {border-color: transparent transparent red transparent !important;}
-div.wpcf7-mail-sent-ok {border-color: transparent transparent #ffffff transparent !important;}
+div.wpcf7-mail-sent-ok {border-color: transparent transparent c('white') transparent !important;}
 .wpcf7 .ajax-loader {
 	position: relative;
 	bottom: 48px;
@@ -104,28 +94,17 @@ div.wpcf7-mail-sent-ok {border-color: transparent transparent #ffffff transparen
 	width: 100%;
 	text-align: center;
 }
-#recaptcha {margin-top: 2em;}
-#recaptcha div {margin: 0 auto;}
-#recaptcha div div iframe {width: 100%; height: 100%;}
 
 /* Responsive */
 @media only screen and (min-width: 768px) {
 	.wpcf7-form {
-		-ms-flex-direction: row;
-		-webkit-flex-direction: row;
 		flex-direction: row;
-		-ms-flex-pack: justify;
-		-webkit-justify-content: space-between;
 		justify-content: space-between;
-		-ms-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
 		flex-wrap: wrap;
 	}
 	.wpcf7-form div:nth-child(2),
 	.wpcf7-form div:nth-child(3) {
 		width: 48%;
-		-ms-flex: 0 0 48%;
-		-webkit-flex-basis: 48%;
 		flex-basis: 48%;
 	}
 	.wpcf7-form div:nth-child(4),
