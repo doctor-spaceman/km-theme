@@ -31,16 +31,14 @@ const config = require( './wpgulp.config.js' );
  *
  * Load gulp plugins and passing them semantic names.
  */
-const gulp = require( 'gulp' ); // Gulp of-course.
+const gulp = require( 'gulp' ); // Gulp, of course.
 
 // CSS related plugins.
 const sass = require( 'gulp-sass' ); // Gulp plugin for Sass compilation.
-const minifycss = require( 'gulp-uglifycss' ); // Minifies CSS files.
+const csso = require('gulp-csso'); // Minifies CSS files.
 const autoprefixer = require( 'gulp-autoprefixer' ); // Autoprefixing magic.
 const mmq = require( 'gulp-merge-media-queries' ); // Combine matching media queries into one.
 const rtlcss = require( 'gulp-rtlcss' ); // Generates RTL stylesheet.
-
-const csso = require('gulp-csso');
 
 // JS related plugins.
 const concat = require( 'gulp-concat' ); // Concatenates JS files.
@@ -127,8 +125,8 @@ gulp.task( 'styles', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( sourcemaps.write({ includeContent: false }) )
-		.pipe( sourcemaps.init({ loadMaps: true }) )
+		//.pipe( sourcemaps.write({ includeContent: false }) )
+		//.pipe( sourcemaps.init({ loadMaps: true }) )
 		.pipe( autoprefixer( config.BROWSERS_LIST ) )
 		//.pipe( autoprefixer( {grid: true, overrideBrowserslist: config.BROWSERS_LIST }) )
 		.pipe( sourcemaps.write( './' ) )
@@ -138,7 +136,6 @@ gulp.task( 'styles', () => {
 		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
 		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 		.pipe( rename({ suffix: '.min' }) )
-		.pipe( minifycss({ maxLineLen: 10 }) )
 		.pipe( csso() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
@@ -175,8 +172,8 @@ gulp.task( 'stylesRTL', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		.pipe( sourcemaps.write({ includeContent: false }) )
-		.pipe( sourcemaps.init({ loadMaps: true }) )
+		//.pipe( sourcemaps.write({ includeContent: false }) )
+		//.pipe( sourcemaps.init({ loadMaps: true }) )
 		.pipe( autoprefixer( config.BROWSERS_LIST ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
@@ -187,7 +184,6 @@ gulp.task( 'stylesRTL', () => {
 		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
 		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
 		.pipe( rename({ suffix: '.min' }) )
-		.pipe( minifycss({ maxLineLen: 10 }) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
 		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
@@ -210,7 +206,7 @@ gulp.task( 'vendorsJS', () => {
 	return gulp
 		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) }) // Only run on changed files.
 		.pipe( plumber( errorHandler ) )
-		/*.pipe(
+		.pipe(
 			babel({
 				presets: [
 					[
@@ -221,7 +217,7 @@ gulp.task( 'vendorsJS', () => {
 					]
 				]
 			})
-		)*/
+		)
 		.pipe( remember( config.jsVendorSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsVendorFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
@@ -250,7 +246,7 @@ gulp.task( 'vendorsJS', () => {
  *     4. Uglifes/Minifies the JS file and generates custom.min.js
  */
 gulp.task( 'customJS', () => {
-	return gulp
+	return gulp 
 		//.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
 		.src( config.jsCustomSRC ) // Only run on changed files.
 		.pipe( plumber( errorHandler ) )

@@ -6,7 +6,7 @@
  *
  * @package WPGulp
  */
-
+ 
 module.exports = {
 
 	// Project options.
