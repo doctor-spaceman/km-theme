@@ -54,9 +54,6 @@ jQuery(document).ready(function($) {
 			menuItems[0].focus();
 		}
 	});
-	
-	$('.hero-copy').delay(400).animate({'opacity':'1'},500);
-	$('.content-panel').delay(750).animate({'opacity':'1'},500);
 
 	//Fix z-index youtube video embedding
 	$('iframe').each(function() {
