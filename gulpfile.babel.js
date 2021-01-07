@@ -51,52 +51,11 @@ const imagemin = require( 'gulp-imagemin' ); // Minify PNG, JPEG, GIF and SVG im
 // Utility related plugins.
 const rename = require( 'gulp-rename' ); // Renames files E.g. style.css -> style.min.css.
 const lineec = require( 'gulp-line-ending-corrector' ); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
-const filter = require( 'gulp-filter' ); // Enables you to work on a subset of the original files by filtering them using a glob.
 const sourcemaps = require( 'gulp-sourcemaps' ); // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css).
-const notify = require( 'gulp-notify' ); // Sends message notification to you.
-const browserSync = require( 'browser-sync' ).create(); // Reloads browser and injects CSS. Time-saving synchronized browser testing.
 const wpPot = require( 'gulp-wp-pot' ); // For generating the .pot file.
 const sort = require( 'gulp-sort' ); // Recommended to prevent unnecessary changes in pot-file.
 const cache = require( 'gulp-cache' ); // Cache files in stream for later use.
 const remember = require( 'gulp-remember' ); //  Adds all the files it has ever seen back into the stream.
-const plumber = require( 'gulp-plumber' ); // Prevent pipe breaking caused by errors from gulp plugins.
-const beep = require( 'beepbeep' );
-
-/**
- * Custom Error Handler.
- *
- * @param Mixed err
- */
-const errorHandler = r => {
-	notify.onError( '\n\n❌  ===> ERROR: <%= error.message %>\n' )( r );
-	beep();
-
-	// this.emit('end');
-};
-
-/**
- * Task: `browser-sync`.
- *
- * Live Reloads, CSS injections, Localhost tunneling.
- * @link http://www.browsersync.io/docs/options/
- *
- * @param {Mixed} done Done.
- */
-const browsersync = done => {
-	browserSync.init({
-		proxy: config.projectURL,
-		open: config.browserAutoOpen,
-		injectChanges: config.injectChanges,
-		watchEvents: [ 'change', 'add', 'unlink', 'addDir', 'unlinkDir' ]
-	});
-	done();
-};
-
-// Helper function to allow browser reload with Gulp 4.
-const reload = done => {
-	browserSync.reload();
-	done();
-};
 
 /**
  * Task: `styles`.
@@ -110,12 +69,10 @@ const reload = done => {
  *    4. Autoprefixes it and generates style.css
  *    5. Renames the CSS file with suffix .min.css
  *    6. Minifies the CSS file and generates style.min.css
- *    7. Injects CSS or reloads the browser via browserSync
  */
 gulp.task( 'styles', () => { 
 	return gulp
 		.src( config.styleSRC, { allowEmpty: true })
-		.pipe( plumber( errorHandler ) )
 		.pipe( sourcemaps.init() )
 		.pipe(
 			sass({
@@ -125,23 +82,15 @@ gulp.task( 'styles', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		//.pipe( sourcemaps.write({ includeContent: false }) )
-		//.pipe( sourcemaps.init({ loadMaps: true }) )
 		.pipe( autoprefixer( config.BROWSERS_LIST ) )
-		//.pipe( autoprefixer( {grid: true, overrideBrowserslist: config.BROWSERS_LIST }) )
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
-		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
 		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
-		.pipe( browserSync.stream() ) // Reloads style.css if that is enqueued.
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( csso() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
-		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
-		.pipe( browserSync.stream() ) // Reloads style.min.css if that is enqueued.
-		.pipe( notify({ message: '\n\n✅  ===> STYLES — completed!\n', onLast: true }) );
 });
 
 /**
@@ -157,12 +106,10 @@ gulp.task( 'styles', () => {
  *    6. Writes Sourcemaps for style-rtl.css
  *    7. Renames the CSS files with suffix .min.css
  *    8. Minifies the CSS file and generates style-rtl.min.css
- *    9. Injects CSS or reloads the browser via browserSync
  */
 gulp.task( 'stylesRTL', () => {
 	return gulp
 		.src( config.styleSRC, { allowEmpty: true })
-		.pipe( plumber( errorHandler ) )
 		.pipe( sourcemaps.init() )
 		.pipe(
 			sass({
@@ -172,23 +119,16 @@ gulp.task( 'stylesRTL', () => {
 			})
 		)
 		.on( 'error', sass.logError )
-		//.pipe( sourcemaps.write({ includeContent: false }) )
-		//.pipe( sourcemaps.init({ loadMaps: true }) )
 		.pipe( autoprefixer( config.BROWSERS_LIST ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( rename({ suffix: '-rtl' }) ) // Append "-rtl" to the filename.
 		.pipe( rtlcss() ) // Convert to RTL.
 		.pipe( sourcemaps.write( './' ) ) // Output sourcemap for style-rtl.css.
 		.pipe( gulp.dest( config.styleDestination ) )
-		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
-		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
 		.pipe( mmq({ log: true }) ) // Merge Media Queries only for .min.css version.
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.styleDestination ) )
-		.pipe( filter( '**/*.css' ) ) // Filtering stream to only css files.
-		.pipe( browserSync.stream() ) // Reloads style.css or style-rtl.css, if that is enqueued.
-		.pipe( notify({ message: '\n\n✅  ===> STYLES RTL — completed!\n', onLast: true }) );
 });
 
 /**
@@ -205,8 +145,7 @@ gulp.task( 'stylesRTL', () => {
 gulp.task( 'vendorsJS', () => {
 	return gulp
 		.src( config.jsVendorSRC, { since: gulp.lastRun( 'vendorsJS' ) }) // Only run on changed files.
-		.pipe( plumber( errorHandler ) )
-		.pipe(
+		/*.pipe(
 			babel({
 				presets: [
 					[
@@ -217,7 +156,7 @@ gulp.task( 'vendorsJS', () => {
 					]
 				]
 			})
-		)
+		)*/
 		.pipe( remember( config.jsVendorSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsVendorFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
@@ -231,7 +170,6 @@ gulp.task( 'vendorsJS', () => {
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsVendorDestination ) )
-		.pipe( notify({ message: '\n\n✅  ===> VENDOR JS — completed!\n', onLast: true }) );
 });
 
 /**
@@ -247,9 +185,7 @@ gulp.task( 'vendorsJS', () => {
  */
 gulp.task( 'customJS', () => {
 	return gulp 
-		//.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
-		.src( config.jsCustomSRC ) // Only run on changed files.
-		.pipe( plumber( errorHandler ) )
+		.src( config.jsCustomSRC, { since: gulp.lastRun( 'customJS' ) }) // Only run on changed files.
 		.pipe(
 			babel({
 				presets: [
@@ -262,7 +198,7 @@ gulp.task( 'customJS', () => {
 				]
 			})
 		)
-		//.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
+		.pipe( remember( config.jsCustomSRC ) ) // Bring all files back to stream.
 		.pipe( concat( config.jsCustomFile + '.js' ) )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
@@ -275,7 +211,6 @@ gulp.task( 'customJS', () => {
 		.pipe( uglify() )
 		.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
 		.pipe( gulp.dest( config.jsCustomDestination ) )
-		.pipe( notify({ message: '\n\n✅  ===> CUSTOM JS — completed!\n', onLast: true }) );
 });
 
 /**
@@ -300,7 +235,7 @@ gulp.task( 'images', () => {
 		.pipe(
 			cache(
 				imagemin([
-					imagemin.gifsicle({ interlaced: true }),
+					/*imagemin.gifsicle({ interlaced: true }),*/
 					imagemin.jpegtran({ progressive: true }),
 					imagemin.optipng({ optimizationLevel: 3 }), // 0-7 low-high.
 					imagemin.svgo({
@@ -310,7 +245,6 @@ gulp.task( 'images', () => {
 			)
 		)
 		.pipe( gulp.dest( config.imgDST ) )
-		.pipe( notify({ message: '\n\n✅  ===> IMAGES — completed!\n', onLast: true }) );
 });
 
 /**
@@ -346,7 +280,6 @@ gulp.task( 'translate', () => {
 			})
 		)
 		.pipe( gulp.dest( config.translationDestination + '/' + config.translationFile ) )
-		.pipe( notify({ message: '\n\n✅  ===> TRANSLATE — completed!\n', onLast: true }) );
 });
 
 /**
@@ -356,13 +289,13 @@ gulp.task( 'translate', () => {
  */
 gulp.task(
 	'watch',
-	gulp.parallel( 'styles', 'vendorsJS', 'customJS', 'images', browsersync, () => {
+	gulp.parallel( 'styles', 'vendorsJS', 'customJS', /*'images',*/ () => {
 		gulp.watch( config.watchPhp, reload ); // Reload on PHP file changes.
 		gulp.watch( config.watchStyles, gulp.parallel( 'styles' ) ); // Reload on SCSS file changes.
 		gulp.watch( config.watchJsVendor, gulp.series( 'vendorsJS', reload ) ); // Reload on vendorsJS file changes.
 		gulp.watch( config.watchJsCustom, gulp.series( 'customJS', reload ) ); // Reload on customJS file changes.
-		gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes.
+		/* gulp.watch( config.imgSRC, gulp.series( 'images', reload ) ); // Reload on customJS file changes. */
 	})
 );
 
-gulp.task('default', gulp.series( 'styles','vendorsJS', 'customJS', 'images' ) );
+gulp.task('default', gulp.series( 'styles','vendorsJS', 'customJS' /*'images'*/) );
