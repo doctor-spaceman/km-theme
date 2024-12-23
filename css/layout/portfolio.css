@@ -1,0 +1,38 @@
+/*-----Portfolio-----*/
+.grid {
+	width: 88%;
+	margin: 0 auto;
+	padding: 10px 0px;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;	
+	margin: 0 auto;
+}
+.row img {
+	margin: 10px;
+	width: 40px;
+}
+
+/* Responsive */
+@media only screen and (min-width: 400px) {
+	.row img {
+		margin: 12px;
+		width: 60px;
+	}	
+}
+@media only screen and (min-width: 610px) {
+	.row img {
+		margin: 14px;
+		width: 80px;
+	}		
+}
+@media only screen and (min-width: 640px) {
+	.row img {width: auto;}			
+}
+@media only screen and (min-width: 768px) {
+	.feature-box p {font-size: 1em;}
+	.feature-box .fa {font-size: 4em;}
+}

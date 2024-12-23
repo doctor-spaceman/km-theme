@@ -26,7 +26,7 @@ if ( !is_admin_area() ) {
     // Use modern jQuery
     function switch_to_hosted_jquery() {
         wp_deregister_script('jquery');
-        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',null, null, false, null);
+        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js',null, null, false, null);
         wp_enqueue_script('jquery');
     }
     add_action('init', 'switch_to_hosted_jquery');
@@ -38,13 +38,13 @@ add_filter( 'wpcf7_load_css', '__return_false' );
 
 function site_scripts() {
     // fonts
-    wp_register_style('font-josefin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
-    wp_register_style('font-raleway', 'https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap');
-    wp_enqueue_style('font-josefin');
-    wp_enqueue_style('font-raleway');
+    wp_register_style('font-cormorant-garamond', 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&display=swap');
+    wp_register_style('font-rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+    wp_enqueue_style('font-cormorant-garamond');
+    wp_enqueue_style('font-rubik');
     
     // css
-    if ( preg_match('/(staging-km)/', get_site_url()) ) :
+    if ( preg_match('/(staging)/', get_site_url()) ) :
         wp_register_style('css-main', get_template_directory_uri() . '/css/style.css');
     else :
         wp_register_style('css-main', get_template_directory_uri() . '/css/style.min.css');
@@ -53,7 +53,7 @@ function site_scripts() {
 
     // js
     if ( file_exists(get_template_directory() . '/js/vendor.js') ) :
-        if ( preg_match('/(staging-km)/', get_site_url()) ) :
+        if ( preg_match('/(staging)/', get_site_url()) ) :
             wp_register_script('js-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
             wp_register_script('js-custom', get_template_directory_uri() . '/js/custom.js', array('js-vendor'), '', true);
         else :
