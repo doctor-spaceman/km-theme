@@ -55,17 +55,17 @@ function site_scripts() {
   // js
   if (file_exists(get_template_directory() . '/js/vendor.js')) :
     if ($isStaging === 1) :
-      wp_register_script('js-4321780-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
-      wp_enqueue_script('js-4321780-custom', get_template_directory_uri() . '/js/custom.js', array('jquery','js-4321780-vendor'), '', true);
+      wp_register_script('js-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
+      wp_enqueue_script('js-custom', get_template_directory_uri() . '/js/custom.js', array('jquery','js-vendor'), '', true);
     else :
-      wp_register_script('js-4321780-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
-      wp_enqueue_script('js-4321780-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery','js-4321780-vendor'), '', true);
+      wp_register_script('js-vendor', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true);
+      wp_enqueue_script('js-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery','js-vendor'), '', true);
     endif;
   else :
     if ($isStaging === 1) :
-      wp_enqueue_script('js-4321780-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);
+      wp_enqueue_script('js-custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true);
     else :
-      wp_enqueue_script('js-4321780-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true);
+      wp_enqueue_script('js-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true);
     endif;
   endif;
   wp_register_script('js-fontawesome', 'https://kit.fontawesome.com/e550cf8e1e.js');	

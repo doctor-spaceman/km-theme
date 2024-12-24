@@ -10,10 +10,10 @@
             )
           );?>
           <div class="social">
-            <div class="social-slider flex justify-space-between">
+          <div class="social-slider flex justify-space-between">
               <div class="social-slider__option js-drag-item">
-                <div draggable="true" data-href="https://github.com/luckysnorkel">
-                  <span title="Katelyn's Github" class="fab fa-github-square fontawesome-icon"></span>
+                <div draggable="true" data-href="https://www.linkedin.com/in/katelynmueller/">
+                  <span title="Katelyn's LinkedIn Profile" class="fa-brands fa-linkedin fontawesome-icon"></span>
                 </div>
               </div>
               <div class="social-slider__target-container">
@@ -23,7 +23,17 @@
             <div class="social-slider flex justify-space-between">
               <div class="social-slider__option js-drag-item">
                 <div draggable="true" data-href="https://github.com/luckysnorkel">
-                  <span title="LinkedIn" class="fab fa-linkedin fontawesome-icon"></span>
+                  <span title="Katelyn's Github Profile" class="fa-brands fa-square-github fontawesome-icon"></span>
+                </div>
+              </div>
+              <div class="social-slider__target-container">
+                <div class="social-slider__target js-drag-target"></div>
+              </div>
+            </div>
+            <div class="social-slider flex justify-space-between">
+              <div class="social-slider__option js-drag-item">
+                <div draggable="true" data-href="https://public.tableau.com/app/profile/katelyn.mueller.mclean/vizzes">
+                  <span title="Katelyn's Tableau Profile" class="fa-solid fa-chart-pie fontawesome-icon"></span>
                 </div>
               </div>
               <div class="social-slider__target-container">
