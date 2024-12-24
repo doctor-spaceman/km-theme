@@ -1,17 +1,6 @@
 /*-----Header-----*/
-#mainHeader,
-#footer {
-	height: 70px;
-    display: flex;
-    flex-shrink: 0;
-}
-#mainHeader {
-    position: fixed;
-    width: 100%;
-    z-index: 80000;
-   	box-shadow:
-		0 10px 20px rgba(0,0,0,0.19),
-		0 6px 6px rgba(0,0,0,0.23);
+#header {
+  margin: 100px auto;
 }
 #headerContent {
 	display: flex;
@@ -26,10 +15,10 @@
 	align-items: center;
 }
 #nameTitle {
-	font-size: 1.3em;
+	font-size: 2rem;
 
-	@media only screen and (min-width: 530px) {
-		font-size: 2em;
+	@media only screen and (min-width: 768px) {
+		font-size: 6rem;
 	}
 }
 #logo {

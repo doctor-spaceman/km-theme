@@ -1,7 +1,24 @@
 <?php get_header(); ?>
 
-					<section class="content-panel bg-blue-dark">
-						<div class="services wrapper">
+        <section class="col-2 flex wrapper">
+          <div class="col-2__left w50">
+            <?php wp_nav_menu(
+              array(
+                'menu' => 'Main Menu', 
+                'container' => 'nav',
+                'container_class' => 'main-menu main-menu--section'
+              )
+            );?>
+          </div>
+          <div class="col-2__right w50">
+            <?php
+              if ( get_the_content() ) :
+                the_content(); 
+              endif;
+            ?>
+          </div>
+        </section>
+            <div>
 							<a class="feature-box" href="<?php echo esc_url(get_field('left_panel_link')); ?>">
 								<div>
 									<span data-fa-symbol="left" class="<?php echo esc_html(get_field('left_panel_icon')); ?> text-blue-light"></span>
@@ -27,16 +44,6 @@
 								</div>
 							</a>
 						</div>
-					</section>
-					<section class="content-panel">
-						<div class="copy text-blue-dark wrapper">
-						<?php
-							if ( get_the_content() ) :
-								the_content(); 
-							endif;
-						?>
-						</div>
-					</section>
 				</main>
 			</div>		
 				

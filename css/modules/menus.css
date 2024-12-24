@@ -1,106 +1,70 @@
 /*-----Navigation-----*/
-#navIcon {
-	width: 30px;
-	height: 24px;
-	position: relative;
-	z-index: 300;
-	transform: rotate(0deg);
-	transition: .5s ease-in-out;
-	cursor: pointer;
-
-	@media only screen and (min-width: 640px) {
-		width: 40px;
-	}
-}
-#navIcon span {
-	display: block;
-	position: absolute;
-	height: 3px;
-	width: 100%;
-	background: var(--var-color-light-blue);
-	opacity: 1;
-	left: 0;
-	transform: rotate(0deg);
-	transition: .25s ease-in-out;
-}
-#navIcon span:nth-child(1) {top: 0px;}
-#navIcon span:nth-child(2),
-#navIcon span:nth-child(3) {top: 10px;}
-#navIcon span:nth-child(4) {top: 20px;}
-#navIcon.open span {background: var(--var-color-white);}
-#navIcon.open span:nth-child(1) {
-	top: 18px;
-	width: 0%;
-	left: 50%;
-}
-#navIcon.open span:nth-child(2) {
-	transform: rotate(45deg);
-}
-#navIcon.open span:nth-child(3) {
-	transform: rotate(-45deg);
-}
-#navIcon.open span:nth-child(4) {
-	top: 18px;
-	width: 0%;
-	left: 50%;
-}
-.screen-overlay {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	z-index: 90;
-	background-color: var(--var-color-black);
-	opacity: .6;
-	display: none;	
-}
-#mainMenu {
-	display: none;
-	position: relative;
-	z-index: 95;
-}
-
-/*-----Main Menu-----*/
+/*---Main Menu---*/
 .main-menu {
-	position: fixed;
-	top: 70px;
-	left: 0;
-	right: 0;
-	background-color: var(--var-color-dark-gray);
-	box-shadow:
-		0 10px 20px rgba(0,0,0,0.19),
-		0 6px 6px rgba(0,0,0,0.23);
+  font-family: var(--var-font-heading);
+  font-size: 4rem;
+  font-style: italic;
+}
+.main-menu:not(.main-menu--section) {
+  display: none;
 }
 .main-menu ul {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	margin: 0;
 	padding: 0;
-	font-family: var(--var-font-heading);
-	line-height: 2.3em;
-	font-size: 1.2em;
 	list-style: none;
-	text-transform: uppercase;
-}
-.main-menu ul li {
-	border-bottom: 1px solid var(--var-color-white);
-	width: 140px;
-	text-align: center;
-
 }
 .main-menu ul li:last-child {border-bottom: none;}
 .main-menu ul li a {
 	display: block;
 	padding: 0 10px;
 	text-decoration: none;
-	color: var(--var-color-white);
+	color: var(--var-color-black);
 	transition-duration: .5s;
 }
 .main-menu ul li a:hover {
-	background-color: darken(var(--var-color-dark-gray), 10%);
+
 }
 .current-menu-item {
-	background-color: lighten(var(--var-color-dark-gray), 10%);
+
+}
+
+/* When the menu is presented as an on-page content section */
+.main-menu--section {
+  ul.menu {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 24px;
+  }
+  .menu-item {
+    margin-bottom: 48px;
+    position: relative;
+    width: 100%;
+  }
+  .menu-item::before {
+    content: "";
+    position: absolute;
+    z-index: -10;
+    left: 0;
+    top: 10%;
+    height: 100%;
+    width: 100%;
+    background: var(--var-color-black);
+    clip-path: polygon(10% 0, 10% 0, 0 100%, 0 100%);
+    transition: clip-path .1s ease;
+  }
+  .menu-item:hover::before {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  }
+  .menu-item:hover a {
+    border-bottom: 2px solid var(--var-color-white);
+    color: var(--var-color-white);
+  }
+  .menu-item a {
+    display: inline-block;
+    border-bottom: 2px solid var(--var-color-black);
+    margin-left: 10%;
+    transition: background .1s ease, border .1s ease, color .1s ease;
+  }
 }

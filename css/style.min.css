@@ -4,6 +4,7 @@
 @import 'foundation/structure.css';
 @import 'foundation/theme.css';
 @import 'foundation/typography.css';
+@import 'foundation/animations.css';
 
 /* Layout */
 @import 'layout/home.css';
