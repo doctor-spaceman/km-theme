@@ -1,3 +1,19 @@
+"use-strict";
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded');
+  const $draggables = document.querySelectorAll('#social div[draggable="true"]');
+  console.log($draggables);
+  for (const $dragItem of $draggables) {
+    $dragItem.addEventListener('dragstart', function(e) {
+      console.log('dragging item');
+
+    })
+  }
+
+});
+
+/*
 jQuery(document).ready(function($) {
 	//Show menu
 	var menuItems = $('#mainMenu ul a');
@@ -85,3 +101,4 @@ jQuery(document).ready(function($) {
 		$('#navIcon').focus();
 	}
 });
+*/

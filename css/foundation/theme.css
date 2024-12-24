@@ -4,7 +4,7 @@ a {
     &:visited {
         color: var(--var-color-light-blue);
         text-decoration: none;
-        transition-duration: .5s;
+        transition-duration: .1s;
     }
     &:hover,
     &:active {

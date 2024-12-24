@@ -1,4 +1,4 @@
-
+  <?php if(!is_front_page()) : ?>
 		<footer role="contentinfo" id="footer" class="bg-blue-dark text-blue-light">
 			<div id="social">
 				<a href="http://katelynmueller.tumblr.com/">
@@ -10,6 +10,7 @@
 			</div>
 			<div class="attribution wrapper">website and original content &#169; katelyn mueller - all rights reserved</div>
 		</footer>
+  <?php endif; ?>
 
 <?php wp_footer(); ?>
 
