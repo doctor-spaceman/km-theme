@@ -49,7 +49,7 @@
         );
       endif; ?>
     </header>
-    <main role="main">
+    <main>
       <?php if (!is_front_page()) : ?>
         <div class="hero-area clearfix"<?php if ( $background ) : ?> style="background: url('<?php echo $background[0]; ?>') no-repeat top left/cover;"<?php endif; ?>>
           <div class="hero-copy wrapper">

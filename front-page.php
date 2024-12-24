@@ -10,11 +10,15 @@
             )
           );?>
           <div id="social">
-          <div draggable="true">
-            <span title="Tumblr" class="fab fa-tumblr-square fontawesome-icon"></span>
+            <div draggable="true">
+              <span title="Tumblr" class="fab fa-tumblr-square fontawesome-icon"></span>
+            </div>
+            <div draggable="true">
+              <span title="LinkedIn" class="fab fa-linkedin fontawesome-icon"></span>
+            </div>
           </div>
-          <div draggable="true">
-            <span title="LinkedIn" class="fab fa-linkedin fontawesome-icon"></span>
+          <div id="dragTarget" width="100" height="100" class="bg-blue-dark">
+            X
           </div>
         </div>
         </div>

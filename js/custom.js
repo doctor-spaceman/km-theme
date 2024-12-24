@@ -1,17 +1,22 @@
-"use-strict";
+if (document.readyState !== 'loading') {
+  console.log('DOM already loaded');
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    const $draggables = document.querySelectorAll('#social div[draggable="true"]');
+    console.log($draggables);
+    for (const $dragItem of $draggables) {
+      $dragItem.addEventListener('dragstart', (e) => {
+        console.log('dragging item');
+      })
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOMContentLoaded');
-  const $draggables = document.querySelectorAll('#social div[draggable="true"]');
-  console.log($draggables);
-  for (const $dragItem of $draggables) {
-    $dragItem.addEventListener('dragstart', function(e) {
-      console.log('dragging item');
-
+    const $dragTarget = document.querySelector('#dragTarget');
+    $dragTarget.addEventListener('dragenter', (e) => {
+      e.preventDefault();
+      console.log('Target reached!')
     })
-  }
-
-});
+  });
+}
 
 /*
 jQuery(document).ready(function($) {
