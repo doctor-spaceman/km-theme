@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-      <section class="col-2 flex wrapper">
-        <div class="col-2__left w50">
+      <section class="columns flex wrapper">
+        <div class="w50">
           <?php wp_nav_menu(
             array(
               'menu' => 'Main Menu', 
@@ -9,20 +9,32 @@
               'container_class' => 'main-menu main-menu--section'
             )
           );?>
-          <div id="social">
-            <div draggable="true">
-              <span title="Tumblr" class="fab fa-tumblr-square fontawesome-icon"></span>
+          <div class="social">
+            <div class="social-slider flex justify-space-between">
+              <div class="social-slider__option js-drag-item">
+                <div draggable="true" data-href="https://github.com/luckysnorkel">
+                  <span title="Katelyn's Github" class="fab fa-github-square fontawesome-icon"></span>
+                </div>
+              </div>
+              <div class="social-slider__target-container">
+                <div class="social-slider__target js-drag-target"></div>
+              </div>
             </div>
-            <div draggable="true">
-              <span title="LinkedIn" class="fab fa-linkedin fontawesome-icon"></span>
+            <div class="social-slider flex justify-space-between">
+              <div class="social-slider__option js-drag-item">
+                <div draggable="true" data-href="https://github.com/luckysnorkel">
+                  <span title="LinkedIn" class="fab fa-linkedin fontawesome-icon"></span>
+                </div>
+              </div>
+              <div class="social-slider__target-container">
+                <div class="social-slider__target js-drag-target"></div>
+              </div>
             </div>
           </div>
-          <div id="dragTarget" width="100" height="100" class="bg-blue-dark">
-            X
-          </div>
+          
         </div>
         </div>
-        <div class="col-2__right w50">
+        <div class="w50">
           <?php
             if ( get_the_content() ) :
               the_content(); 

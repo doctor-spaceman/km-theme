@@ -8,17 +8,15 @@
   display: flex;
   flex-shrink: 0;
 }
-#social {
-	display: flex;
-}
-#social a {
+#footer .social a {
 	padding: 10px;
+
+  &:link,
+  &:visited {
+    color: var(--var-color-black);
+  }
 }
-#social a:link,
-#social a:visited {
-	color: var(--var-color-black);
-}
-#social .fontawesome-icon {
+#footer .social .fontawesome-icon {
 	width: 40px;
 	height: 40px;
 }

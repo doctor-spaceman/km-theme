@@ -64,6 +64,9 @@ header, nav, main, footer, article, section, aside {
 	opacity: .6;
 	display: none;	
 }
+.columns {
+  gap: 48px;
+}
 
 /* Sizes */
 .w50 {
@@ -79,3 +82,4 @@ header, nav, main, footer, article, section, aside {
 
 /* Flexbox */
 .flex { display: flex; }
+.justify-space-between { justify-content: space-between;}

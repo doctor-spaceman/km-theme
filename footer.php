@@ -1,4 +1,4 @@
-    <footer role="contentinfo" id="footer" class="bg-blue-dark text-blue-light">
+    <footer role="contentinfo" id="footer">
       <?php if(!is_front_page()) : ?>
         <div id="social">
           <a href="http://katelynmueller.tumblr.com/">
