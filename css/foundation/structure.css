@@ -82,4 +82,6 @@ header, nav, main, footer, article, section, aside {
 
 /* Flexbox */
 .flex { display: flex; }
+.justify-end { justify-content: flex-end; }
 .justify-space-between { justify-content: space-between;}
+.align-items-center { align-items: center; }

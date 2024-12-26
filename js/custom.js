@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const $dragItem of $draggables) {
     $dragItem.addEventListener('dragstart', (e) => {
       $draggedItem = e.target;
+      $draggedItem.classList.remove('zoomIn');
       $draggedItem.classList.add('zoomOut');
       e.dataTransfer.effectAllowed = 'move';
     })
@@ -17,14 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     $target.addEventListener('dragenter', (e) => {
       e.preventDefault();
+      e.target.style.backgroundColor = '#e0e722';
+    })
+    $target.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      e.target.style.backgroundColor = '#ffffff';
     })
     $target.addEventListener('drop', (e) => {
       e.preventDefault();
-      console.log(e.dataTransfer)
-      
       $draggedItem.classList.remove('zoomOut');
       $draggedItem.classList.add('zoomIn');
-      e.target.style.backgroundColor = 'transparent';
       e.target.appendChild($draggedItem);
       /*
       setTimeout(() => {
@@ -33,4 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
       */
     })
   }
+  document.body.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  })
+  document.body.addEventListener('dragenter', (e) => {
+    e.preventDefault();
+  })
+  document.body.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+  })
+  document.body.addEventListener('drop', (e) => {
+    e.preventDefault();
+    $draggedItem.classList.remove('zoomOut');
+    $draggedItem.classList.remove('zoomIn');
+    $draggedItem.classList.add('zoomIn');
+  })
 });
