@@ -8,7 +8,7 @@
   display: flex;
   flex-shrink: 0;
 }
-#footer .social a {
+#footer #social a {
 	padding: 10px;
 
   &:link,
@@ -16,7 +16,7 @@
     color: var(--var-color-black);
   }
 }
-#footer .social .fontawesome-icon {
+#footer #social .fontawesome-icon {
 	width: 40px;
 	height: 40px;
 }

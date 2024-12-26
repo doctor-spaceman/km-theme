@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-      <section class="columns flex wrapper">
-        <div class="w50">
+      <div class="columns flex wrapper">
+        <section class="w50">
           <?php wp_nav_menu(
             array(
               'menu' => 'Main Menu', 
@@ -9,8 +9,8 @@
               'container_class' => 'main-menu main-menu--section'
             )
           );?>
-          <div class="social">
-          <div class="social-slider flex justify-space-between align-items-center">
+          <aside class="social">
+            <div class="social-slider flex justify-space-between align-items-center">
               <div class="social-slider__option js-drag-item">
                 <div draggable="true" data-href="https://www.linkedin.com/in/katelynmueller/">
                   <span title="Katelyn's LinkedIn Profile" class="fa-brands fa-linkedin fontawesome-icon"></span>
@@ -34,19 +34,16 @@
               </div>
               <div class="social-slider__target flex justify-end align-items-center js-drag-target"></div>
             </div>
-          </div>
-          
-        </div>
-        </div>
-        <div class="w50">
+          </aside>
+        </section>
+        <section class="w50">
           <?php
             if ( get_the_content() ) :
               the_content(); 
             endif;
           ?>
-        </div>
+        </section>
       </section>
-    </main>
 
 <?php get_footer(); ?>
 				

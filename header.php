@@ -18,13 +18,14 @@
 	
 	<?php $background = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ); ?>
 
-	<body>
+	<body <?php body_class(); ?>>
     <header id="header" class="wrapper">
       <h1 id="nameTitle">
         <?php if (!is_front_page()) : ?><a href="<?php bloginfo('url'); ?>"><?php endif; ?>
         <?php bloginfo('name'); ?>
         <?php if (!is_front_page()) : ?></a><?php endif; ?>
       </h1>
+      <div class="wave"></div>
       <div class="flex">
         <span>
           Creative Direction
@@ -50,18 +51,3 @@
       endif; ?>
     </header>
     <main>
-      <?php if (!is_front_page()) : ?>
-        <div class="hero-area clearfix"<?php if ( $background ) : ?> style="background: url('<?php echo $background[0]; ?>') no-repeat top left/cover;"<?php endif; ?>>
-          <div class="hero-copy wrapper">
-            <p>
-              <?php 
-                if ( is_404() ) :
-                  echo "Sorry, no such page exists.";
-                elseif ( get_field('hero_content') ) : 
-                  echo get_field('hero_content');
-                endif;
-              ?>
-            </p>
-          </div>
-        </div>
-      <?php endif; ?>

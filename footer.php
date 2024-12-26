@@ -1,3 +1,4 @@
+    </main>
     <footer role="contentinfo" id="footer">
       <?php if(!is_front_page()) : ?>
         <div id="social">

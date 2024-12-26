@@ -26,21 +26,9 @@ header, nav, main, footer, article, section, aside {
   flex-shrink: 0;
   flex-basis: auto;
 }
-#content {
-    display: block;
-    margin-top: 70px;
-    position: relative; 
-    width: 100%;
-}
 .content-panel {
 	width: 100%;
 	padding: 20px 0px;
-}
-.section {
-	border-top: 1px solid var(--var-color-dark-blue);
-	margin-top: 20px;
-	padding: 5px 0;
-	text-transform: uppercase;
 }
 .wrapper {
   width: 312px; 

@@ -5,9 +5,6 @@
   font-size: 4rem;
   font-style: italic;
 }
-.main-menu:not(.main-menu--section) {
-  display: none;
-}
 .main-menu ul {
 	display: flex;
 	align-items: center;
@@ -15,7 +12,6 @@
 	padding: 0;
 	list-style: none;
 }
-.main-menu ul li:last-child {border-bottom: none;}
 .main-menu ul li a {
 	display: block;
 	padding: 0 10px;

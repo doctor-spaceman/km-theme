@@ -1,26 +1,49 @@
 /*-----Resume-----*/
-ul {
-	list-style-type: square;
-	margin: 10px 0px 0px 40px;
+.resume-section {
+  margin-bottom: 24px;
 }
-li {
-	font-size: 1.1em;
-	padding: 2px 0px;
+.resume-section__content {
+  margin-bottom: 2rem;
+  margin-left: 24px;
 }
-.job-title {font-size: 1.2em;}
-.date {font-size: .94em;}
-.credits {
-	text-transform: uppercase;
-	font-weight: 400;
-	margin: 10px 0px 0px 20px;
+.resume-item__summary {
+  border-left: 2px solid var(--var-color-black);
+  padding-left: 12px;
 }
-.credits-list {margin-left: 20px;}
+.resume-item__title {
+  font-style: italic;
+}
+.resume-item__duration {
+  color: var(--var-color-light-gray);
+  font-size: 1rem;
+}
+.resume-item__list ul {
+  list-style-type: square;
+	margin: 12px 0px 0px 48px;
+}
+.resume-item__list li {
+	padding: 4px 0px;
+}
+.resume-item__list--columns  {
+  margin-top: 12px;
+}
+.resume-item__list--columns ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+  margin-top: 0;
+}
+.resume-item__list--columns ul li {
+  width: 50%;
+}
+.resume-item__list--indented {
+  margin-left: calc(48px * 2);
+}
 .resume-list {
 	@media only screen and (min-width: 530px) {
 		min-width: 33%;
 	}
 }
-.resume-section, 
 .resume-list {padding: 0px 20px 40px 20px;}
 .resume-list-container {
 	display: flex;

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let $draggedItem = false;
-  const $draggables = document.querySelectorAll('.social .js-drag-item');
+  const $draggables = document.querySelectorAll('.home .social .js-drag-item');
 
   for (const $dragItem of $draggables) {
     $dragItem.addEventListener('dragstart', (e) => {
