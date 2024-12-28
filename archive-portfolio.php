@@ -32,7 +32,9 @@ Template Name: Portfolio Archive
     endwhile; 
   ?>
   <?php else : ?>
-    <p>Sorry, there are currently no portfolio items. Check back soon!</p>
+    <section>
+      <p>Sorry, there are currently no portfolio items. Check back soon!</p>
+    </section>
   <?php endif; ?>
 </div>
 

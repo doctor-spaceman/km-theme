@@ -83,50 +83,43 @@
               class="portfolio-item__content-media<?php if ($isVideo) : ?>--video<?php elseif ($isImage) : ?>--image<?php elseif ($isAudio) : ?>--audio<?php endif; ?>"
               <?php if ($isImage) : ?>style="aspect-ratio: <?php echo $mediaSource['width'] / $mediaSource['height']; ?>"<?php endif; ?>
             >
-              <?php if ($isVideo) : ?>
-                <media-controller>
-                <?php if (str_contains($mediaSource, 'vimeo')) : ?>
+              <?php if (!$isImage) : ?>
+                <media-controller <?php if ($isAudio) : ?>audio<?php endif; ?>>
+                <?php if ($isVideo && str_contains($mediaSource, 'vimeo')) : ?>
                   <vimeo-video
                     src="<?php echo $mediaSource; ?>"
                     slot="media"
                     crossorigin
                     muted
                   ></vimeo-video>
-                <?php elseif (str_contains($mediaSource, 'youtube')) : ?>
+                  <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
+                <?php elseif ($isVideo && str_contains($mediaSource, 'youtube')) : ?>
                   <youtube-video
                     src="<?php echo $mediaSource; ?>"
                     slot="media"
                     crossorigin
                     muted
                   ></youtube-video>
-                <?php endif; ?>
                   <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
+                <?php elseif ($isAudio) : ?>
+                  <audio
+                    slot="media"
+                    src="<?php echo $mediaSource['url']; ?>"
+                  ></audio>
+                <?php endif; ?>
                   <media-control-bar>
                     <media-play-button></media-play-button>
                     <media-mute-button></media-mute-button>
                     <media-time-range></media-time-range>
                     <media-time-display showduration ></media-time-display>
-                    <media-fullscreen-button></media-fullscreen-button>
+                    <?php if ($isVideo) : ?><media-fullscreen-button></media-fullscreen-button><?php endif; ?>
                   </media-control-bar>
                 </media-controller>
-              <?php elseif ($isImage) : ?>
+              <?php else : ?>
                 <picture>
                   <source srcset="<?php echo $mediaSource['url']; ?>" />
                   <img src="<?php echo $mediaSource['url']; ?>" alt="<?php echo $mediaSource['alt'] ?>" />
                 </picture>
-              <?php elseif ($isAudio) : ?>
-                <media-controller audio>
-                  <audio
-                    slot="media"
-                    src="<?php echo $mediaSource['url']; ?>"
-                  ></audio>
-                  <media-control-bar>
-                    <media-play-button></media-play-button>
-                    <media-mute-button></media-mute-button>
-                    <media-time-range></media-time-range>
-                    <media-time-display showduration></media-time-display>
-                  </media-control-bar>
-                </media-controller>
               <?php endif; ?>
             </li>
           <?php endwhile; ?>
