@@ -7,14 +7,16 @@ Template Name: Portfolio Archive
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <?php if (get_the_title()) : ?>
-    <h1><?php the_title(); ?></h1>
-  <?php endif; ?>
-  <?php if (get_the_content()) : ?>
-    <section>
-      <?php the_content(); ?>
-    </section>
-  <?php endif; ?>
+  <section>
+    <?php if (get_the_title()) : ?>
+      <h1><?php the_title(); ?></h1>
+    <?php endif; ?>
+    <?php if (get_the_content()) : ?>
+      <div>
+        <?php the_content(); ?>
+      </div>
+    <?php endif; ?>
+  </section>
   <?php wp_reset_query(); ?>	
   <?php 
     $args = array( 

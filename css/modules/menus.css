@@ -2,40 +2,29 @@
 /*---Main Menu---*/
 .main-menu {
   font-family: var(--var-font-heading);
-  font-size: 4rem;
+  font-size: 2rem;
   font-style: italic;
-}
-.main-menu ul {
-	display: flex;
-	align-items: center;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.main-menu ul li a {
-	display: block;
-	padding: 0 10px;
-	text-decoration: none;
-	color: var(--var-color-black);
-	transition-duration: .5s;
-}
-.main-menu ul li a:hover {
-
-}
-.current-menu-item {
-
-}
-
-/* When the menu is presented as an on-page content section */
-.main-menu--section {
+  
   ul.menu {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--var-spacing) * 2);
+    margin: 0;
+    margin-left: calc(var(--var-spacing) * -2);
+    padding: 0;
+    list-style: none;
+  }
+  a {
+    display: inline-block;
+    border-bottom: 2px solid var(--var-color-black);
+    color: var(--var-color-black);
+    margin: 0 24px;
+    padding: 0 12px;
+    text-decoration: none;
+    transition: background .1s ease, border .1s ease, color .1s ease;
   }
   .menu-item {
-    margin-bottom: 48px;
     position: relative;
-    width: 100%;
   }
   .menu-item::before {
     content: "";
@@ -56,10 +45,26 @@
     border-bottom: 2px solid var(--var-color-white);
     color: var(--var-color-white);
   }
-  .menu-item a {
-    display: inline-block;
-    border-bottom: 2px solid var(--var-color-black);
-    margin-left: 10%;
-    transition: background .1s ease, border .1s ease, color .1s ease;
+  .current-menu-item {
+    font-weight: bold;
+  }
+}
+
+/* When the menu is presented as an on-page content section */
+.main-menu--section {
+  font-size: 4rem;
+
+  ul.menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: unset;
+    margin-left: 0;
+  }
+  a {
+    margin: 0 10%;
+  }
+  .menu-item {
+    margin-bottom: 48px;
+    width: 100%;
   }
 }

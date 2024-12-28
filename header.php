@@ -20,26 +20,20 @@
 
 	<body <?php body_class(); ?>>
     <header id="header" class="wrapper">
-      <h1 id="nameTitle">
-        <?php if (!is_front_page()) : ?><a href="<?php bloginfo('url'); ?>"><?php endif; ?>
-        <?php bloginfo('name'); ?>
-        <?php if (!is_front_page()) : ?></a><?php endif; ?>
-      </h1>
+      <?php if (is_front_page()) : ?>
+        <h1 id="nameTitle">
+      <?php else : ?>
+        <div id="nameTitle" class="h1">
+          <a href="<?php bloginfo('url'); ?>">
+      <?php endif; ?>
+      <?php bloginfo('name'); ?>
+      <?php if (is_front_page()) : ?>
+        </h1>
+      <?php else : ?>
+          </a>
+        </div>
+      <?php endif; ?>
       <div class="wave"></div>
-      <div class="flex">
-        <span>
-          Creative Direction
-        </span>
-        <span>
-          Data-Driven Decisions
-        </span>
-        <span>
-          Thoughtful Analysis
-        </span>
-        <span>
-          Audio Experiences
-        </span>
-      </div>
       <?php if (!is_front_page()) : 
         wp_nav_menu(
           array(
