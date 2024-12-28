@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     $target.addEventListener('dragenter', (e) => {
       e.preventDefault();
-      e.target.style.backgroundColor = '#e0e722';
+      e.target.style.backgroundColor = '#44D62C';
     })
     $target.addEventListener('dragleave', (e) => {
       e.preventDefault();

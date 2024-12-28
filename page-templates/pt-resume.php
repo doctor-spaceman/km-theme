@@ -14,8 +14,8 @@
             the_row(); 
             $panelType = get_row_layout(); // panel row name
 
-            if ( file_exists(get_template_part('inc/panel', $panelType)) ) : 
-              include(locate_template('inc/panel-'.$panelType, false, false));
+            if (file_exists(locate_template('inc/panel-'.$panelType.'.php', false, false))) : 
+              include(locate_template('inc/panel-'.$panelType.'.php', false, false));
             endif;
           endwhile;
         endif; ?>

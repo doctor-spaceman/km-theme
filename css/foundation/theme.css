@@ -35,26 +35,12 @@ img, a img {
 }
 
 iframe {
-	display: block;
-	width: 300px;
-	height: 169px;
-    margin: 0 auto;
+	aspect-ratio: 16 / 9;
+  width: 100%;
+}
 
-    @media only screen and (min-width: 640px) {
-        width: 480px; height: 270px;
-    }
-    @media only screen and (min-width: 768px) {
-        width: 530px; height: 298px;
-    }
-    @media only screen and (min-width: 968px) {
-        width: 600px; height: 338px;
-    }
-    
-    &:not(#recaptcha.iframe) {
-        @media only screen and (min-width: 530px) {
-            width: 400px; height: 225px;
-        }
-    }
+.wp-audio-shortcode {
+  margin: 12px 0;
 }
 
 /* Wave */

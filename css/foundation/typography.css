@@ -4,7 +4,7 @@ body {
   font-weight: 300;
 }
 p {
-  padding-bottom: 20px;
+  padding-bottom: 24px;
 }
 p, ul:not(.menu) {
   font-size: 1.2rem;

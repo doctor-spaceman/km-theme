@@ -26,10 +26,6 @@ header, nav, main, footer, article, section, aside {
   flex-shrink: 0;
   flex-basis: auto;
 }
-.content-panel {
-	width: 100%;
-	padding: 20px 0px;
-}
 .wrapper {
   width: 312px; 
   margin: 0 auto;
@@ -53,6 +49,7 @@ header, nav, main, footer, article, section, aside {
 	display: none;	
 }
 .columns {
+  display: flex;
   gap: 48px;
 }
 
@@ -70,6 +67,8 @@ header, nav, main, footer, article, section, aside {
 
 /* Flexbox */
 .flex { display: flex; }
-.justify-end { justify-content: flex-end; }
-.justify-space-between { justify-content: space-between;}
-.align-items-center { align-items: center; }
+.flex-column { flex-direction: column; }
+.flex-justify-end { justify-content: flex-end; }
+.flex-justify-space-between { justify-content: space-between;}
+.flex-align-center { align-items: center; }
+.flex-align-start { align-items: flex-start; }

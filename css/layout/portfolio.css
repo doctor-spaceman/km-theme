@@ -1,4 +1,50 @@
 /*-----Portfolio-----*/
+.portfolio-item {
+  margin-bottom: 24px;
+}
+.portfolio-item__category {
+  color: var(--var-color-light-gray);
+  font-size: 1rem;
+  font-style: italic;
+}
+.portfolio-item__list {
+  list-style: none;
+  padding-bottom: 24px;
+
+  .portfolio-item__list-item {
+    margin-bottom: 12px;
+  }
+  .portfolio-item__list-item-icon {
+    margin-right: 12px;
+
+    svg {
+      aspect-ratio: 1;
+      width: 1rem;
+    }
+  }
+}
+.portfolio-item__content-media {
+  gap: 48px;
+  list-style: none;
+}
+.portfolio-item__content-media--video {
+  iframe {
+    background-color: var(--var-color-black);
+    box-shadow: 24px 24px 0px 0px #C724B1;
+    -webkit-box-shadow: 24px 24px 0px 0px #C724B1;
+    -moz-box-shadow: 24px 24px 0px 0px #C724B1;
+  }
+}
+.portfolio-item__content-media--image {
+  img {
+    box-shadow: 24px 24px 0px 0px #4D4DFF;
+      -webkit-box-shadow: 24px 24px 0px 0px #4D4DFF;
+      -moz-box-shadow: 24px 24px 0px 0px #4D4DFF;
+    height: 100%;
+    width: 100%;
+  }
+}
+
 .grid {
 	width: 88%;
 	margin: 0 auto;
