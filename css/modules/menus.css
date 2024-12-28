@@ -7,7 +7,8 @@
   
   ul.menu {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: calc(var(--var-spacing) * 2);
     margin: 0;
     margin-left: calc(var(--var-spacing) * -2);
@@ -47,6 +48,13 @@
   }
   .current-menu-item {
     font-weight: bold;
+  }
+
+  @media screen and (min-width: 768px) {
+    ul.menu {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 }
 

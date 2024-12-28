@@ -3,57 +3,16 @@
   margin: 100px auto;
 }
 #nameTitle {
-	font-size: 2rem;
-
-	@media only screen and (min-width: 768px) {
-		font-size: 6rem;
-	}
+	font-size: 3.4rem;
 
   a,
   a:hover {
     color: var(--var-color-black);
   }
-}
-#logo {
-	width: 66px;
-	height: 66px;
-}
 
-/*-----Hero-----*/
-.hero-area {
-	position: relative;
-	padding-top: 70px;
-	width: 100%;
-	height: 310px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	z-index: 700;
-}
-.hero-area:after {
-	content: '';
-	background: linear-gradient(to bottom, rgba(70,69,106,.5) 0%,rgba(100,0,28,.5) 100%); 
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	z-index: 800;
-}
-.hero-copy {
-	position: relative;
-	box-sizing: border-box;
-	text-align: center;
-	border: 1px solid var(--var-color-white);
-	padding: 20px 20px 0px 20px;
-	color: var(--var-color-white);
-	background: rgba(0,0,0,.4);
-	z-index: 900;
-}
-
-/* Responsive */
-@media only screen and (min-width: 610px) {
-	.hero-area {
-		height: 400px;
-	}	
+  @media screen and (min-width: 768px) {
+    #nameTitle {
+      font-size: 6rem;
+    }
+  }
 }
