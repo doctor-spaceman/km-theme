@@ -1,6 +1,10 @@
 /*-----Portfolio-----*/
 .portfolio-item {
-  margin-bottom: 24px;
+  margin-bottom: calc(var(--var-spacing) * 6);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: calc(var(--var-spacing) * 2);
+  }
 }
 .portfolio-item__category {
   color: var(--var-color-light-gray);
@@ -9,13 +13,13 @@
 }
 .portfolio-item__list {
   list-style: none;
-  padding-bottom: 24px;
+  padding-bottom: calc(var(--var-spacing) * 2);
 
   .portfolio-item__list-item {
-    margin-bottom: 12px;
+    margin-bottom: var(--var-spacing);
   }
   .portfolio-item__list-item-icon {
-    margin-right: 12px;
+    margin-right: var(--var-spacing);
 
     svg {
       aspect-ratio: 1;
@@ -24,61 +28,31 @@
   }
 }
 .portfolio-item__content-media {
-  gap: 48px;
+  gap: calc(var(--var-spacing) * 4);
   list-style: none;
 }
 .portfolio-item__content-media--video {
   iframe {
     background-color: var(--var-color-black);
-    box-shadow: 24px 24px 0px 0px #C724B1;
-    -webkit-box-shadow: 24px 24px 0px 0px #C724B1;
-    -moz-box-shadow: 24px 24px 0px 0px #C724B1;
+    box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
+    -webkit-box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
+    -moz-box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
   }
 }
 .portfolio-item__content-media--image {
   img {
-    box-shadow: 24px 24px 0px 0px #4D4DFF;
-      -webkit-box-shadow: 24px 24px 0px 0px #4D4DFF;
-      -moz-box-shadow: 24px 24px 0px 0px #4D4DFF;
+    box-shadow: 24px 24px 0px 0px  var(--var-color-blue);
+      -webkit-box-shadow: 24px 24px 0px 0px  var(--var-color-blue);
+      -moz-box-shadow: 24px 24px 0px 0px  var(--var-color-blue);
     height: 100%;
     width: 100%;
   }
 }
-
-.grid {
-	width: 88%;
-	margin: 0 auto;
-	padding: 10px 0px;
-}
-.row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;	
-	margin: 0 auto;
-}
-.row img {
-	margin: 10px;
-	width: 40px;
-}
-
-/* Responsive */
-@media only screen and (min-width: 400px) {
-	.row img {
-		margin: 12px;
-		width: 60px;
-	}	
-}
-@media only screen and (min-width: 610px) {
-	.row img {
-		margin: 14px;
-		width: 80px;
-	}		
-}
-@media only screen and (min-width: 640px) {
-	.row img {width: auto;}			
-}
-@media only screen and (min-width: 768px) {
-	.feature-box p {font-size: 1em;}
-	.feature-box .fa {font-size: 4em;}
+.portfolio-item__content-media--audio {
+  media-controller[audio] {
+    box-shadow: 24px 24px 0px 0px var(--var-color-orange);
+      -webkit-box-shadow: 24px 24px 0px 0px var(--var-color-orange);
+      -moz-box-shadow: 24px 24px 0px 0px var(--var-color-orange);
+    width: 100%;
+  }
 }

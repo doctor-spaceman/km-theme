@@ -70,5 +70,8 @@ function site_scripts() {
   endif;
   wp_register_script('js-fontawesome', 'https://kit.fontawesome.com/e550cf8e1e.js');	
   wp_enqueue_script('js-fontawesome');
+  if (is_page_template('archive-portfolio.php')) :
+    wp_enqueue_script_module('js-mediachrome', 'https://cdn.jsdelivr.net/npm/media-chrome@4/+esm');
+  endif;
 }
 add_action( 'wp_enqueue_scripts', 'site_scripts' );

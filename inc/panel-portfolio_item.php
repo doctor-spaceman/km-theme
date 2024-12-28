@@ -18,7 +18,7 @@
     <div class="portfolio-item__content<?php if ($itemMedia) : ?> columns<?php endif; ?>">
       <div class="portfolio-item__content-copy<?php if ($itemMedia) : ?> w50<?php endif; ?>">
         <?php if (have_rows('portfolio_item_accolades')) : ?>
-          <ul class="portfolio-item__list">
+          <ul class="portfolio-item__list portfolio-item__list--accolades">
             <?php while (have_rows('portfolio_item_accolades')) :
               the_row();
               $accoladeName = get_sub_field('accolade_title');
@@ -65,6 +65,7 @@
             the_row();
             $mediaType = get_sub_field('media_type');
             $mediaSource = false;
+            $isAudio = false;
             $isVideo = false;
             $isImage = false;
             if (get_sub_field('video')) :
@@ -73,11 +74,13 @@
             elseif (get_sub_field('image')) :
               $isImage = true;
               $mediaSource = get_sub_field('image');
+            elseif (get_sub_field('audio')) :
+              $isAudio = true;
+              $mediaSource = get_sub_field('audio');
             endif;
-            
           ?>
             <li
-              class="portfolio-item__content-media<?php if ($isVideo) : ?>--video<?php elseif ($isImage) : ?>--image<?php endif; ?>"
+              class="portfolio-item__content-media<?php if ($isVideo) : ?>--video<?php elseif ($isImage) : ?>--image<?php elseif ($isAudio) : ?>--audio<?php endif; ?>"
               <?php if ($isImage) : ?>style="aspect-ratio: <?php echo $mediaSource['width'] / $mediaSource['height']; ?>"<?php endif; ?>
             >
               <?php if ($isVideo) : ?>
@@ -86,11 +89,26 @@
                 <?php elseif (str_contains($mediaSource, 'youtube')) : ?>
                   <iframe src="<?php echo $mediaSource; ?>" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <?php endif; ?>
-              <?php else : ?>
+              <?php elseif ($isImage) : ?>
                 <picture>
                   <source srcset="<?php echo $mediaSource['url']; ?>" />
                   <img src="<?php echo $mediaSource['url']; ?>" alt="<?php echo $mediaSource['alt'] ?>" />
                 </picture>
+              <?php elseif ($isAudio) : ?>
+                <media-controller audio>
+                  <audio
+                    slot="media"
+                    src="<?php echo $mediaSource['url']; ?>"
+                  ></audio>
+                  <media-control-bar>
+                    <media-play-button></media-play-button>
+                    <media-time-display showduration></media-time-display>
+                    <media-time-range></media-time-range>
+                    <media-playback-rate-button></media-playback-rate-button>
+                    <media-mute-button></media-mute-button>
+                    <media-volume-range></media-volume-range>
+                  </media-control-bar>
+                </media-controller>
               <?php endif; ?>
             </li>
           <?php endwhile; ?>

@@ -39,8 +39,8 @@ iframe {
   width: 100%;
 }
 
-.wp-audio-shortcode {
-  margin: 12px 0;
+media-controller[audio] {
+  width: 100%;
 }
 
 /* Wave */
