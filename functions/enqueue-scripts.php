@@ -72,6 +72,8 @@ function site_scripts() {
   wp_enqueue_script('js-fontawesome');
   if (is_page_template('archive-portfolio.php')) :
     wp_enqueue_script_module('js-mediachrome', 'https://cdn.jsdelivr.net/npm/media-chrome@4/+esm');
+    wp_enqueue_script_module('js-mediachrome-vimeo', 'https://cdn.jsdelivr.net/npm/vimeo-video-element@1.1/+esm');
+    wp_enqueue_script_module('js-mediachrome-youtube', 'https://cdn.jsdelivr.net/npm/youtube-video-element@1.1/+esm');
   endif;
 }
 add_action( 'wp_enqueue_scripts', 'site_scripts' );

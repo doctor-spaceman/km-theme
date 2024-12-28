@@ -84,11 +84,31 @@
               <?php if ($isImage) : ?>style="aspect-ratio: <?php echo $mediaSource['width'] / $mediaSource['height']; ?>"<?php endif; ?>
             >
               <?php if ($isVideo) : ?>
+                <media-controller>
                 <?php if (str_contains($mediaSource, 'vimeo')) : ?>
-                  <iframe src="<?php echo $mediaSource; ?>" title="Vimeo video player" frameborder="0" allowfullscreen></iframe>
+                  <vimeo-video
+                    src="<?php echo $mediaSource; ?>"
+                    slot="media"
+                    crossorigin
+                    muted
+                  ></vimeo-video>
                 <?php elseif (str_contains($mediaSource, 'youtube')) : ?>
-                  <iframe src="<?php echo $mediaSource; ?>" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <youtube-video
+                    src="<?php echo $mediaSource; ?>"
+                    slot="media"
+                    crossorigin
+                    muted
+                  ></youtube-video>
                 <?php endif; ?>
+                  <media-loading-indicator slot="centered-chrome" noautohide></media-loading-indicator>
+                  <media-control-bar>
+                    <media-play-button></media-play-button>
+                    <media-mute-button></media-mute-button>
+                    <media-time-range></media-time-range>
+                    <media-time-display showduration ></media-time-display>
+                    <media-fullscreen-button></media-fullscreen-button>
+                  </media-control-bar>
+                </media-controller>
               <?php elseif ($isImage) : ?>
                 <picture>
                   <source srcset="<?php echo $mediaSource['url']; ?>" />
@@ -102,11 +122,9 @@
                   ></audio>
                   <media-control-bar>
                     <media-play-button></media-play-button>
-                    <media-time-display showduration></media-time-display>
-                    <media-time-range></media-time-range>
-                    <media-playback-rate-button></media-playback-rate-button>
                     <media-mute-button></media-mute-button>
-                    <media-volume-range></media-volume-range>
+                    <media-time-range></media-time-range>
+                    <media-time-display showduration></media-time-display>
                   </media-control-bar>
                 </media-controller>
               <?php endif; ?>

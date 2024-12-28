@@ -30,10 +30,22 @@
 .portfolio-item__content-media {
   gap: calc(var(--var-spacing) * 4);
   list-style: none;
+
+  media-play-button,
+  media-mute-button,
+  media-time-range,
+  media-time-display {
+    padding-right: var(--var-spacing);
+  }
+  media-play-button {
+    padding-left: var(--var-spacing);
+  }
+  media-fullscreen-button {
+    padding-right: var(--var-spacing);
+  }
 }
 .portfolio-item__content-media--video {
-  iframe {
-    background-color: var(--var-color-black);
+  media-controller {
     box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
     -webkit-box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
     -moz-box-shadow: 24px 24px 0px 0px  var(--var-color-purple);
@@ -53,6 +65,5 @@
     box-shadow: 24px 24px 0px 0px var(--var-color-orange);
       -webkit-box-shadow: 24px 24px 0px 0px var(--var-color-orange);
       -moz-box-shadow: 24px 24px 0px 0px var(--var-color-orange);
-    width: 100%;
   }
 }

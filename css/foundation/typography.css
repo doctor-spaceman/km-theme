@@ -17,6 +17,9 @@ h1, h2, h3 {
 	font-family: var(--var-font-heading);
   font-style: italic;
 }
+h1 {
+  font-size: 3rem;
+}
 h2 {
   font-size: 2rem;
 }
@@ -27,5 +30,3 @@ h4 {
   font-size: 1.2rem;
   font-weight: 300;
 }
-
-/* Responsive */
