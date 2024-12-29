@@ -13,7 +13,10 @@
           </a>
         </div>
       <?php endif; ?>
-			<div class="attribution wrapper">website and original content &#169; katelyn mueller - all rights reserved</div>
+			<div class="attribution wrapper">
+        &#169; katelyn mueller - all rights reserved<br>
+        website by <a href="https://mattmclean.net" target="_blank">matt mclean</a>
+      </div>
 		</footer>
 
     <?php wp_footer(); ?>

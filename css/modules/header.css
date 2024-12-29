@@ -1,9 +1,9 @@
 /*-----Header-----*/
 #header {
-  margin: 100px auto;
+  margin: calc(var(--var-spacing) * 6) auto;
 }
 #nameTitle {
-	font-size: 3.4rem;
+	font-size: 3rem;
 
   a,
   a:hover {

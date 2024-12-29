@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <section>
+  <section class="intro">
     <?php if (get_the_title()) : ?>
       <h1><?php the_title(); ?></h1>
     <?php endif; ?>

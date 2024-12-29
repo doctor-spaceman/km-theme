@@ -1,25 +1,41 @@
 /*-----Resume-----*/
 .resume-section {
-  margin-bottom: 24px;
+  margin-bottom: calc(var(--var-spacing) * 2);
+
+  p {
+    padding-bottom: 0;
+  }
 }
 .resume-section__content {
   margin-bottom: 2rem;
-  margin-left: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
+    margin-left: calc(var(--var-spacing) * 2);
+  }
 }
 .resume-item__summary {
   border-left: 2px solid var(--var-color-black);
-  padding-left: 12px;
+  padding-left: var(--var-spacing);
 }
 .resume-item__title {
   font-style: italic;
 }
 .resume-item__duration {
   color: var(--var-color-light-gray);
-  font-size: 1rem;
+  font-size: .8rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
 }
 .resume-item__list ul {
   list-style-type: square;
-	margin: 12px 0px 0px 48px;
+	margin: var(--var-spacing) 0px 0px var(--var-spacing);
+
+  @media screen and (min-width: 768px) {
+    margin: var(--var-spacing) 0px 0px calc(var(--var-spacing) * 4);
+  }
 }
 .resume-item__list li {
 	padding: 4px 0px;
@@ -30,31 +46,19 @@
 .resume-item__list--columns ul {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 1rem;
-  margin-top: 0;
+  margin: 0 1rem;
 }
 .resume-item__list--columns ul li {
-  width: 50%;
+  width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: calc(50% - 1rem);
+  }
 }
 .resume-item__list--indented {
-  margin-left: calc(48px * 2);
-}
-.resume-list {
-	@media only screen and (min-width: 530px) {
-		min-width: 33%;
-	}
-}
-.resume-list {padding: 0px 20px 40px 20px;}
-.resume-list-container {
-	display: flex;
-	flex-direction: column;
+  margin-left: var(--var-spacing);
 
-	@media only screen and (min-width: 530px) {
-		flex-direction: row;
-		justify-content: space-between;
-		flex-wrap: wrap;
+  @media only screen and (min-width: 768px) {
+		margin-left: calc(var(--var-spacing) * 8);
 	}
-}
-.resume-section p {
-	padding-bottom: 0px;
 }

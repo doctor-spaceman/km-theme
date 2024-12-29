@@ -2,27 +2,38 @@
 /*---Main Menu---*/
 .main-menu {
   font-family: var(--var-font-heading);
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-style: italic;
-  
+
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
+
   ul.menu {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: calc(var(--var-spacing) * 2);
+    align-items: center;
+    justify-content: center;
     margin: 0;
     margin-left: calc(var(--var-spacing) * -2);
     padding: 0;
     list-style: none;
+
+    @media screen and (min-width: 475px) {
+      justify-content: flex-end;
+    }
   }
   a {
     display: inline-block;
-    border-bottom: 2px solid var(--var-color-black);
+    border-bottom: 1px solid var(--var-color-black);
     color: var(--var-color-black);
     margin: 0 24px;
     padding: 0 12px;
     text-decoration: none;
     transition: background .1s ease, border .1s ease, color .1s ease;
+
+    @media screen and (min-width: 768px) {
+      border-bottom: 2px solid var(--var-color-black);
+    }
   }
   .menu-item {
     position: relative;
@@ -43,18 +54,15 @@
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   }
   .menu-item:hover a {
-    border-bottom: 2px solid var(--var-color-white);
+    border-bottom: 1px solid var(--var-color-white);
     color: var(--var-color-white);
+
+    @media screen and (min-width: 768px) {
+      border-bottom: 2px solid var(--var-color-white);
+    }
   }
   .current-menu-item {
     font-weight: bold;
-  }
-
-  @media screen and (min-width: 768px) {
-    ul.menu {
-      flex-direction: row;
-      align-items: center;
-    }
   }
 }
 
@@ -65,14 +73,19 @@
   ul.menu {
     flex-direction: column;
     align-items: flex-start;
-    gap: unset;
+    justify-content: flex-start;
     margin-left: 0;
   }
   a {
+    border-bottom: 2px solid var(--var-color-black);
     margin: 0 10%;
   }
   .menu-item {
-    margin-bottom: 48px;
+    margin-bottom: calc(var(--var-spacing) * 4);
     width: 100%;
+  }
+  .menu-item:hover a {
+    border-bottom: 2px solid var(--var-color-white);
+    color: var(--var-color-white);
   }
 }

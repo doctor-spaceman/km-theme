@@ -1,26 +1,26 @@
 /*-----Footer-----*/
 #footer {
-	margin-top: 4em;
-	padding: 20px 0px;
-	flex-direction: column;
-	align-items: center;
-  height: 70px;
-  display: flex;
+	margin-top: calc(var(--var-spacing) * 4);
+	padding: calc(var(--var-spacing) * 2) 0;
+	display: flex;
+  align-items: center;
+  flex-direction: column;
   flex-shrink: 0;
 }
 #footer #social a {
-	padding: 10px;
+	padding: var(--var-spacing);
 
   &:link,
   &:visited {
-    color: var(--var-color-black);
+    color: var(--var-color-dark-gray);
   }
 }
 #footer #social .fontawesome-icon {
-	width: 40px;
-	height: 40px;
+	height: calc(var(--var-spacing) * 3);
+  width: calc(var(--var-spacing) * 3);
 }
 .attribution {
-	font-size: .7em;
+	font-size: .7rem;
+  margin-top: var(--var-spacing);
 	text-align: center;
 }

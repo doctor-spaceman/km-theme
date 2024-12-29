@@ -11,7 +11,9 @@
   <?php if (get_the_title()) : ?>
     <h2 class="portfolio-item__title"><?php echo the_title(); ?></h2>
     <?php if ($itemCategory) : ?>
-      <p class="portfolio-item__category"><?php echo $itemCategory; ?></p>
+      <p class="portfolio-item__category">
+        <?php if ($itemCategory !== get_the_title()) : echo $itemCategory; endif; ?>
+      </p>
     <?php endif; ?>
   <?php endif; ?>
   <?php if (get_the_content()) : ?>
