@@ -1,5 +1,25 @@
 /*-----Portfolio-----*/
-.portfolio-item {
+.portfolio-filters {
+  flex-wrap: wrap;
+  gap: calc(var(--var-spacing));
+  margin-bottom: calc(var(--var-spacing) * 6);
+
+  button {
+    background: transparent;
+    border: 1px solid var(--var-color-black);
+    font-size: .8rem;
+    letter-spacing: 1px;
+    padding: calc(var(--var-spacing) / 2) var(--var-spacing);
+    text-transform: uppercase;
+  }
+  button.active,
+  button:hover {
+    background: var(--var-color-black);
+    color: var(--var-color-white);
+    cursor: pointer;
+  }
+}
+.portfolio-item__content-media {
   margin-bottom: calc(var(--var-spacing) * 6);
 
   @media screen and (min-width: 768px) {

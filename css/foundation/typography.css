@@ -6,7 +6,7 @@ body {
 p {
   padding-bottom: calc(var(--var-spacing) * 2);
 }
-p, ul:not(.menu) {
+p, .p, ul:not(.menu) {
   font-size: 1rem;
   line-height: 1.2rem;
 

@@ -74,7 +74,8 @@ header, nav, main, footer, article, section, aside {
 /* Flexbox */
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
+.flex-justify-center { justify-content: center; }
 .flex-justify-end { justify-content: flex-end; }
-.flex-justify-space-between { justify-content: space-between;}
+.flex-justify-space-between { justify-content: space-between; }
 .flex-align-center { align-items: center; }
 .flex-align-start { align-items: flex-start; }

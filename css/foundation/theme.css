@@ -10,19 +10,17 @@ a {
     color: var(--var-color-purple);
   }
 }
-picture {
-  img {
-    height: 100%;
-    width: 100%;
-    box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
-      -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
-      -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+img {
+  height: 100%;
+  width: 100%;
+  box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+    -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+    -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
 
-    @media screen and (min-width: 768px) {
-      box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
-        -webkit-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
-        -moz-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
-    }
+  @media screen and (min-width: 768px) {
+    box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
+      -webkit-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
+      -moz-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
   }
 }
 .intro {
@@ -34,8 +32,8 @@ media-controller:not([audio]) {
 	aspect-ratio: 16 / 9;
   width: 100%;
   box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
-      -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
-      -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
+    -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
+    -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
 
   @media screen and (min-width: 768px) {
     box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-purple);
@@ -74,12 +72,8 @@ media-fullscreen-button {
 
 /*---Wave---*/
 .wave {
-  --mask:
-    radial-gradient(26.81px at 50% calc(100% + 21px),#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) calc(50% - 30px) calc(50% - 8.5px + .5px)/60px 17px repeat-x,
-    radial-gradient(26.81px at 50% -21px,#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) 50% calc(50% + 8.5px)/60px 17px repeat-x;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
-
   background-color: var(--var-color-black);
-  height: 24px;
+  min-height: calc(var(--var-spacing) * 2);
+  mask: radial-gradient(26.81px at 50% calc(100% + 21px),#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) calc(50% - 30px) calc(50% - 8.5px + .5px)/60px 17px repeat-x,
+        radial-gradient(26.81px at 50% -21px,#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) 50% calc(50% + 8.5px)/60px 17px repeat-x;
 }

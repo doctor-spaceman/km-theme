@@ -1,8 +1,14 @@
-<?php $sectionName = get_sub_field('resume_section_title'); ?>
+<?php 
+  $sectionName = get_sub_field('resume_section_title');
+  $escapeListOptions = array(
+    'ul' => array(),
+    'li' => array()
+  );
+?>
 
 <section class="resume-section">
   <?php if ($sectionName) : ?>
-    <h2 class="resume-section__title"><?php echo $sectionName; ?></h2>
+    <h2 class="resume-section__title"><?php echo esc_html($sectionName); ?></h2>
   <?php endif; ?>
 
   <?php if (have_rows('resume_section_items')) : ?>
@@ -22,7 +28,7 @@
         <div class="resume-item__summary">
           <?php if ($itemName) : ?>
             <h3 class="resume-item__title">
-              <?php echo $itemName; if ($itemLocation) : echo ' — '.$itemLocation; endif; ?>
+              <?php echo esc_html($itemName); if ($itemLocation) : echo ' — '.esc_html($itemLocation); endif; ?>
             </h3>
           <?php endif; ?>
           <?php if (have_rows('resume_section_item_roles')) : 
@@ -33,7 +39,12 @@
             ?>
               <?php if ($itemRole) : ?>
                 <p class="resume-item__title">
-                  <?php echo $itemRole; if ($itemDuration) : ?><span class="resume-item__duration"><?php echo ' — '.$itemDuration; ?></span><?php endif; ?>
+                  <?php echo esc_html($itemRole); ?>
+                  <?php if ($itemDuration) : ?>
+                    <span class="resume-item__duration">
+                      <?php echo ' — '.esc_html($itemDuration); ?>
+                    </span>
+                  <?php endif; ?>
                 </p>
               <?php endif; ?>
             <?php endwhile; ?>
@@ -41,13 +52,13 @@
         </div>
         <?php if ($itemDetails) : ?>
           <div class="resume-item__list">
-            <?php echo $itemDetails; ?>
+            <?php echo wp_kses($itemDetails, $escapeListOptions); ?>
           </div>
         <?php endif; ?>
         <?php if ($enableItemCredits && $itemCredits) : ?>          
           <div class="resume-item__list resume-item__list--columns resume-item__list--indented">
             <h4 class="underline uppercase">Credits</h4>
-            <?php echo $itemCredits; ?>
+            <?php echo wp_kses($itemCredits, $escapeListOptions); ?>
           </div>
         <?php endif; ?>
         <?php if ($enableItemList && have_rows('resume_section_item_lists')) : ?>
@@ -60,7 +71,7 @@
             ?>
               <div class="resume-item__list resume-item__list--columns">
                 <h3><?php echo $itemListName; ?></h3>
-                <?php echo $itemList; ?>
+                <?php echo wp_kses($itemList, $escapeListOptions); ?>
               </div>
             <?php endwhile; ?>
           </div>
