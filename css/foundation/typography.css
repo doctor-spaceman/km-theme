@@ -1,0 +1,55 @@
+/*-----Typography-----*/
+body {
+  font-family: var(--var-font-body);
+  font-weight: 300;
+}
+p {
+  padding-bottom: calc(var(--var-spacing) * 2);
+}
+p, .p, ul:not(.menu) {
+  font-size: 1rem;
+  line-height: 1.2rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
+h1, h2, h3, h4, p, ul {
+  margin: 0;
+}
+h1, h2, h3,
+.h1, .h2, .h3 {
+	font-family: var(--var-font-heading);
+  font-style: italic;
+  font-weight: 300;
+}
+h1, .h1 {
+  font-size: 2rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+h2, .h2 {
+  font-size: 1.6rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+h3, .h3 {
+  font-size: 1.4rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.6rem;
+  }
+}
+h4, .h4 {
+  font-size: 1rem;
+  font-weight: 300;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+}

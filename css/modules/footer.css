@@ -1,0 +1,26 @@
+/*-----Footer-----*/
+#footer {
+	margin-top: calc(var(--var-spacing) * 4);
+	padding: calc(var(--var-spacing) * 2) 0;
+	display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+#footer #social a {
+	padding: var(--var-spacing);
+
+  &:link,
+  &:visited {
+    color: var(--var-color-dark-gray);
+  }
+}
+#footer #social .fontawesome-icon {
+	height: calc(var(--var-spacing) * 3);
+  width: calc(var(--var-spacing) * 3);
+}
+.attribution {
+	font-size: .7rem;
+  margin-top: var(--var-spacing);
+	text-align: center;
+}

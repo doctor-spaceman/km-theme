@@ -1,0 +1,22 @@
+/*-----Variables-----*/
+:root {
+  /* Spacing */
+  --var-spacing: 12px;
+
+  /* Colors */
+  --var-color-white: #ffffff;
+  --var-color-black: #000000;
+  --var-color-light-gray: #686868;
+  --var-color-dark-gray: #363f45;
+  --var-color-blue: #4d4dff;
+  --var-color-fuschia: #db3eb1;
+  --var-color-green: #44d62c;
+  --var-color-orange: #ffad00;
+  --var-color-purple: #c724b1;
+  --var-color-red: #d22730;
+  --var-color-yellow: #e0e722;
+
+  /* Fonts */
+  --var-font-heading: 'Cormorant Garamond', 'Garamond', serif;
+  --var-font-body: 'Rubik', 'Helvetica Neue', sans-serif;
+}

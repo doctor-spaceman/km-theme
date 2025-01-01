@@ -1,0 +1,22 @@
+/*-----Home-----*/
+.home {
+  .social {
+    gap: calc(var(--var-spacing) * 2);
+    margin: calc(var(--var-spacing) * 2) 10%;
+    padding: 0 var(--var-spacing);
+
+    .social__icon {
+      color: var(--var-color-black);
+    }
+    .social__icon:hover {
+      color: var(--var-color-purple);
+      animation-name: pulse;
+      animation-duration: .5s;
+      animation-iteration-count: infinite;
+    }
+    .fontawesome-icon {
+      height: calc(var(--var-spacing) * 4);
+      width: calc(var(--var-spacing) * 4);
+    }
+  }
+}

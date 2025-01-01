@@ -1,0 +1,18 @@
+/*-----Header-----*/
+#header {
+  margin: calc(var(--var-spacing) * 6) auto;
+}
+#nameTitle {
+	font-size: 3rem;
+
+  a,
+  a:hover {
+    color: var(--var-color-black);
+  }
+
+  @media screen and (min-width: 768px) {
+    #nameTitle {
+      font-size: 6rem;
+    }
+  }
+}

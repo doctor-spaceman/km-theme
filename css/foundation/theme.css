@@ -1,0 +1,79 @@
+/*-----Theme Styles-----*/
+a {
+  &:link,
+  &:visited {
+    color: var(--var-color-blue);
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    color: var(--var-color-purple);
+  }
+}
+img {
+  height: 100%;
+  width: 100%;
+  box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+    -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+    -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-blue);
+
+  @media screen and (min-width: 768px) {
+    box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
+      -webkit-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
+      -moz-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-blue);
+  }
+}
+.intro {
+  margin-bottom: calc(var(--var-spacing) * 2);
+}
+
+/*---Media Chrome---*/
+media-controller:not([audio]) {
+	aspect-ratio: 16 / 9;
+  width: 100%;
+  box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
+    -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
+    -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-purple);
+
+  @media screen and (min-width: 768px) {
+    box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-purple);
+      -webkit-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-purple);
+      -moz-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px  var(--var-color-purple);
+  }
+}
+media-controller[audio] {
+  width: 100%;
+  box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-orange);
+    -webkit-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-orange);
+    -moz-box-shadow: var(--var-spacing) var(--var-spacing) 0px 0px  var(--var-color-orange);
+
+  @media screen and (min-width: 768px) {
+    box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px var(--var-color-orange);
+      -webkit-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px var(--var-color-orange);
+      -moz-box-shadow: calc(var(--var-spacing) * 2) calc(var(--var-spacing) * 2) 0px 0px var(--var-color-orange);
+  }
+
+  media-control-bar {
+    width: 100%;
+  }
+}
+media-play-button,
+media-mute-button,
+media-time-range,
+media-time-display {
+  padding-right: var(--var-spacing);
+}
+media-play-button {
+  padding-left: var(--var-spacing);
+}
+media-fullscreen-button {
+  padding-right: var(--var-spacing);
+}
+
+/*---Wave---*/
+.wave {
+  background-color: var(--var-color-black);
+  min-height: calc(var(--var-spacing) * 2);
+  mask: radial-gradient(26.81px at 50% calc(100% + 21px),#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) calc(50% - 30px) calc(50% - 8.5px + .5px)/60px 17px repeat-x,
+        radial-gradient(26.81px at 50% -21px,#0000 calc(99% - 2px),#000 calc(101% - 2px) 99%,#0000 101%) 50% calc(50% + 8.5px)/60px 17px repeat-x;
+}
