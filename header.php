@@ -13,7 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
 		<link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
-		<script defer src="https://cloud.umami.is/script.js" data-website-id="d6e3ad1d-f694-49bf-b84c-9fab1799aad1"></script>
+		<script defer src="https://cloud.umami.is/script.js" data-website-id="d6e3ad1d-f694-49bf-b84c-9fab1799aad1" data-do-not-track="true"></script>
     		<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 		<?php wp_head(); ?>
 	</head>
